@@ -2,6 +2,8 @@ $know-color: #0db057;
 $partial-know: #ffb46e;
 $not-know: #ff3f4a;
 
+$back-card: #7b7b7b;
+
 .word-container {
   width: 300px;
   height: 400px;
@@ -10,9 +12,7 @@ $not-know: #ff3f4a;
   cursor: pointer;
 
   .word {
-    background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
 
     &-flipper {
       position: relative;
@@ -37,7 +37,7 @@ $not-know: #ff3f4a;
       }
 
       &__back {
-        background-color: #3a3a3a;
+        background-color: $back-card;
         transform: rotateY(180deg);
       }
 
@@ -49,9 +49,17 @@ $not-know: #ff3f4a;
         transform: rotateY(180deg);
       }
     }
-  }
 
-  // &:hover .word-flipper {
-  //   transform: rotateY(180deg);
-  // }
+    &-know {
+      background: $know-color;
+    }
+
+    &-partial-know {
+      background: $partial-know;
+    }
+
+    &-not-know {
+      background: $not-know;
+    }
+  }
 }

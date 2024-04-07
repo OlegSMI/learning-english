@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../../assets/style/wordCard.scss";
 import { IWord } from "../../interfaces/IWord";
+import { STATUS } from "./statusCard";
 
 const WordCard = ({ word }: { word: IWord }) => {
   const [flip, setFlip] = useState(false);
@@ -11,7 +12,11 @@ const WordCard = ({ word }: { word: IWord }) => {
 
   return (
     <div className="word-container" onClick={flipCard}>
-      <div className={`word word-flipper${flip ? " word-flipper-rotate" : ""}`}>
+      <div
+        className={`word word-${STATUS(word.attributes.status)} word-flipper${
+          flip ? " word-flipper-rotate" : ""
+        }`}
+      >
         <div className="word-flipper__front">
           <h3>{word.attributes.text}</h3>
         </div>
