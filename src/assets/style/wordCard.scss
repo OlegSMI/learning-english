@@ -62,4 +62,9 @@ $back-card: #7b7b7b;
       background: $not-know;
     }
   }
+
+  @media only screen and (max-device-width: 800px) {
+    width: 250px;
+    height: 250px;
+  }
 }

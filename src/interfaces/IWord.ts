@@ -13,3 +13,5 @@ export interface IWord {
     assotiative: string | null;
   };
 }
+
+export interface IAttributes {}

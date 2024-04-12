@@ -7,6 +7,12 @@ const WordCard = ({ word }: { word: IWord }) => {
   const [flip, setFlip] = useState(false);
 
   function flipCard() {
+    let visibleTimeout;
+    if (!flip) {
+      visibleTimeout = setTimeout(() => setFlip(false), 2000);
+    } else {
+      clearTimeout(visibleTimeout);
+    }
     setFlip(!flip);
   }
 
@@ -19,6 +25,7 @@ const WordCard = ({ word }: { word: IWord }) => {
       >
         <div className="word-flipper__front">
           <h3>{word.attributes.text}</h3>
+          <p>{word.attributes.assotiative}</p>
         </div>
         <div className="word-flipper__back">
           <h3>{word.attributes.russian}</h3>
