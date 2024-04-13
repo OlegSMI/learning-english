@@ -1,5 +1,7 @@
 import { Button } from "@mui/material";
+import { FiList } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import "../assets/style/navbar.scss";
 import {
   CONSTRUCTIONS_LIST,
   GENERATE_ASK,
@@ -9,15 +11,20 @@ import {
 
 const Navbar = () => {
   return (
-    <div>
-      {navbarItems.map((item) => {
-        return (
-          <Link key={item.id} to={item.link}>
-            <Button>{item.name}</Button>
-          </Link>
-        );
-      })}
-    </div>
+    <>
+      <div className="navbar">
+        {navbarItems.map((item) => {
+          return (
+            <Link key={item.id} to={item.link} className="navbar__item">
+              <Button>{item.name}</Button>
+            </Link>
+          );
+        })}
+      </div>
+      <div className="burger-menu">
+        <FiList></FiList>
+      </div>
+    </>
   );
 };
 

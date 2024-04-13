@@ -1,0 +1,28 @@
+.navbar {
+  padding: 10px;
+
+  &__item {
+    transition: 0.5s;
+
+    button {
+      color: white;
+      font-family: "Poppins", "Montserrat";
+      font-weight: bold;
+    }
+
+    &:hover {
+      box-shadow: inset 13em 0 0 0 rgb(195, 189, 189);
+    }
+  }
+
+  @media only screen and (max-device-width: 800px) {
+    display: none;
+  }
+}
+
+.burger-menu {
+  display: none;
+  @media only screen and (max-device-width: 800px) {
+    display: block;
+  }
+}
