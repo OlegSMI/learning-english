@@ -9,7 +9,7 @@ const ModalWindow = ({
 }: {
   children: ReactNode;
   isOpen: boolean;
-  onClose: () => void;
+  onClose: (event: React.MouseEvent<Element>) => void;
 }) => {
   return (
     <div>
@@ -20,7 +20,7 @@ const ModalWindow = ({
         aria-describedby="modal-modal-description"
       >
         <div className="modal__wrapper">
-          <div onClick={onClose}>
+          <div onClick={(event: React.MouseEvent<Element>) => onClose(event)}>
             <FiX />
           </div>
           <div>{children}</div>;

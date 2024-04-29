@@ -28,7 +28,6 @@ const WordCard = ({ word }: { word: IWord }) => {
       >
         <div className="word-flipper__front">
           <ImageAssotiationModal></ImageAssotiationModal>
-
           <FiFeather className="word-flipper__front-image word"></FiFeather>
           <h3>{word.attributes.title}</h3>
           {/* <p>{word.attributes.assotiation.data}</p> */}

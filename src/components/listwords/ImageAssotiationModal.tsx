@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { IconContext } from "react-icons";
 import { IoImageOutline } from "react-icons/io5";
 import ModalWindow from "../shared/ModalWindow";
@@ -7,10 +6,17 @@ import ModalWindow from "../shared/ModalWindow";
 const ImageAssotiationModal = () => {
   const [open, setOpen] = useState(false);
 
-  function openModal(e: React.MouseEvent<HTMLElement>) {
-    console.log(e);
+  function stopPropagationModal(e: React.MouseEvent<Element>, isOpen: boolean) {
     e.stopPropagation();
-    setOpen(true);
+    setOpen(isOpen);
+  }
+
+  function openHandler(e: React.MouseEvent<Element>) {
+    stopPropagationModal(e, true);
+  }
+
+  function closeHadler(e: React.MouseEvent<Element>) {
+    stopPropagationModal(e, false);
   }
 
   return (
@@ -18,10 +24,13 @@ const ImageAssotiationModal = () => {
       <IconContext.Provider value={{ className: "image" }}>
         <IoImageOutline
           className="word-flipper__front-image"
-          onClick={() => openModal(event)}
+          onClick={(event: React.MouseEvent<Element>) => openHandler(event)}
         ></IoImageOutline>
       </IconContext.Provider>
-      <ModalWindow isOpen={open} onClose={() => setOpen(false)}>
+      <ModalWindow
+        isOpen={open}
+        onClose={(event: React.MouseEvent<Element>) => closeHadler(event)}
+      >
         sdsddsd
       </ModalWindow>
     </>
