@@ -12,7 +12,9 @@ const ModalWindow = ({
   onClose: (event: React.MouseEvent<Element>) => void;
 }) => {
   return (
-    <div>
+    <div
+      onClick={(event: React.MouseEvent<Element>) => event.stopPropagation()}
+    >
       <Modal
         open={isOpen}
         onClose={onClose}
@@ -20,10 +22,13 @@ const ModalWindow = ({
         aria-describedby="modal-modal-description"
       >
         <div className="modal__wrapper">
-          <div onClick={(event: React.MouseEvent<Element>) => onClose(event)}>
+          <div
+            onClick={(event: React.MouseEvent<Element>) => onClose(event)}
+            style={{ cursor: "pointer" }}
+          >
             <FiX />
           </div>
-          <div>{children}</div>;
+          <div>{children}</div>
         </div>
       </Modal>
     </div>

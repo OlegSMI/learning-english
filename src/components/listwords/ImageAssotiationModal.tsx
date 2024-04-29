@@ -3,7 +3,7 @@ import { IconContext } from "react-icons";
 import { IoImageOutline } from "react-icons/io5";
 import ModalWindow from "../shared/ModalWindow";
 
-const ImageAssotiationModal = () => {
+const ImageAssotiationModal = ({ image }: { image: unknown }) => {
   const [open, setOpen] = useState(false);
 
   function stopPropagationModal(e: React.MouseEvent<Element>, isOpen: boolean) {
@@ -31,7 +31,12 @@ const ImageAssotiationModal = () => {
         isOpen={open}
         onClose={(event: React.MouseEvent<Element>) => closeHadler(event)}
       >
-        sdsddsd
+        <img
+          src={`${
+            import.meta.env.VITE_API_URL +
+            image.data[0].attributes.formats.thumbnail.url
+          }`}
+        ></img>
       </ModalWindow>
     </>
   );
