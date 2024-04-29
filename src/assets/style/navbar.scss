@@ -23,6 +23,11 @@
 .burger-menu {
   display: none;
   @media only screen and (max-device-width: 800px) {
-    display: block;
+    display: flex;
+    align-items: center;
+
+    svg {
+      cursor: pointer;
+    }
   }
 }

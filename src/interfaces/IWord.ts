@@ -3,14 +3,18 @@ export type StatusWord = "know" | "partial know" | "not know";
 export interface IWord {
   id: number;
   attributes: {
-    wordId: unknown | null;
-    text: string;
+    wordId: string;
+    title: string;
     status: StatusWord;
-    russian: string;
+    translate: string;
     createdAt?: string;
-    updatedAt?: unknown;
-    publishedAt?: unknown;
-    assotiative: string | null;
+    updatedAt?: string;
+    publishedAt?: string;
+    assotiation?: unknown;
+    favourite: boolean | null;
+    notice: string | null;
+    tags?: unknown;
+    group?: unknown;
   };
 }
 

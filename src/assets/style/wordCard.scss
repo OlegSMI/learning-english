@@ -34,6 +34,35 @@ $back-card: #7b7b7b;
         display: flex;
         justify-content: center;
         align-items: center;
+
+        &-image {
+          position: absolute;
+          top: 10px;
+          width: 30px;
+          height: 30px;
+          transition: all 0.1s linear;
+
+          &:hover {
+            color: $back-card;
+          }
+        }
+
+        .image {
+          left: 10px;
+          rect {
+            stroke-width: 42px;
+          }
+          path {
+            stroke-width: 42px;
+          }
+          circle {
+            stroke-width: 42px;
+          }
+        }
+
+        .word {
+          right: 10px;
+        }
       }
 
       &__back {

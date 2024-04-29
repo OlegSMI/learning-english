@@ -1,0 +1,10 @@
+.modal {
+  &--entering {
+  }
+  &--entered {
+  }
+
+  &__wrapper {
+    z-index: 999;
+  }
+}

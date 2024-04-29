@@ -8,7 +8,11 @@ export const useEnglishWordsAPi = () => {
 
   const getWords = async (): Promise<Array<unknown>> => {
     try {
-      const response = await httpClient.get("/api/english-words-id");
+      httpClient.setHeader(
+        "Authorization",
+        `Bearer ${import.meta.env.VITE_API_TOKEN}`
+      );
+      const response = await httpClient.get("/api/words?populate=*");
       const { data }: { data: Array<unknown> } = response.data;
 
       return data;
@@ -31,7 +35,7 @@ export const useEnglishWordsAPi = () => {
     console.log({ data: { ...payload } });
     try {
       const { data }: { data: IResponse<never> } = await httpClient.post(
-        "/api/english-words-id",
+        "/api/words",
         { data: { ...payload } }
       );
       return data;
