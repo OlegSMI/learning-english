@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { IconContext } from "react-icons";
 import { IoImageOutline } from "react-icons/io5";
+import { IMedia } from "../../interfaces/IMedia";
 import ModalWindow from "../shared/ModalWindow";
 
-const ImageAssotiationModal = ({ image }: { image: unknown }) => {
+const ImageAssotiationModal = ({ image }: { image: IMedia | undefined }) => {
   const [open, setOpen] = useState(false);
 
   function stopPropagationModal(e: React.MouseEvent<Element>, isOpen: boolean) {
@@ -31,12 +32,16 @@ const ImageAssotiationModal = ({ image }: { image: unknown }) => {
         isOpen={open}
         onClose={(event: React.MouseEvent<Element>) => closeHadler(event)}
       >
-        <img
-          src={`${
-            import.meta.env.VITE_API_URL +
-            image.data[0].attributes.formats.thumbnail.url
-          }`}
-        ></img>
+        {image ? (
+          <img
+            src={`${
+              import.meta.env.VITE_API_URL +
+              image.data[0].attributes.formats.thumbnail.url
+            }`}
+          ></img>
+        ) : (
+          <span>No image</span>
+        )}
       </ModalWindow>
     </>
   );

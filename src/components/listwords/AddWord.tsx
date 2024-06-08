@@ -1,7 +1,7 @@
 import { Button, FormControl, MenuItem, TextField } from "@mui/material";
 import { useContext, useState } from "react";
 import { useEnglishWordsAPi } from "../../api/englishWordsApi";
-import { StatusWord } from "../../interfaces/IWord";
+import { IAttributes, StatusWord } from "../../interfaces/IWord";
 import { WordContext } from "./AddWordContext";
 
 const AddWord = () => {
@@ -13,12 +13,11 @@ const AddWord = () => {
   const { id: wordId, dispatch: setWords } = useContext(WordContext);
 
   const addNewWord = () => {
-    const payload = {
-      wordId: null,
-      text: word,
+    const payload: IAttributes = {
+      wordId: "loserinskiy" + word + Math.random() * 10000,
+      title: word,
       status: "know" as StatusWord,
-      russian: rusWord,
-      assotiative: null,
+      translate: rusWord,
     };
     setNewWord(payload);
     setWords({

@@ -1,7 +1,11 @@
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import "../../assets/style/bookMark.scss";
 
-const BookMark = ({ isFavourite }: { isFavourite: boolean | null }) => {
+const BookMark = ({
+  isFavourite,
+}: {
+  isFavourite: boolean | null | undefined;
+}) => {
   function changeFavourite() {}
 
   return (

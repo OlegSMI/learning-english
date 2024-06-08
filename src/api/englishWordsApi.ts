@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { IResponse } from "../interfaces/IResponse";
-import { StatusWord } from "../interfaces/IWord";
+import { IAttributes } from "../interfaces/IWord";
 import { useHttpClient } from "./index";
 
 export const useEnglishWordsAPi = () => {
@@ -25,14 +25,7 @@ export const useEnglishWordsAPi = () => {
     }
   };
 
-  const setNewWord = async (payload: {
-    wordId: number | null;
-    text: string;
-    status: StatusWord;
-    russian: string;
-    assotiative: string | null;
-  }) => {
-    console.log({ data: { ...payload } });
+  const setNewWord = async (payload: IAttributes) => {
     try {
       const { data }: { data: IResponse<never> } = await httpClient.post(
         "/api/words",
