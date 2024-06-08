@@ -5,6 +5,8 @@ import { IWord } from "../../interfaces/IWord";
 import ImageAssotiationModal from "./ImageAssotiationModal";
 import { STATUS } from "./statusCard";
 
+import BookMark from "./BookMark";
+
 const WordCard = ({ word }: { word: IWord }) => {
   const [flip, setFlip] = useState(false);
 
@@ -31,8 +33,8 @@ const WordCard = ({ word }: { word: IWord }) => {
             image={word.attributes.assotiation}
           ></ImageAssotiationModal>
           <FiFeather className="word-flipper__front-image word"></FiFeather>
+          <BookMark isFavourite={word.attributes.favourite}></BookMark>
           <h3>{word.attributes.title}</h3>
-          {/* <p>{word.attributes.assotiation.data}</p> */}
         </div>
         <div className="word-flipper__back">
           <h3>{word.attributes.translate}</h3>
