@@ -20,6 +20,10 @@ export class HttpClient {
     });
     this.setHeader("Accept", "application/json");
     this.setHeader("Content-Type", "application/json");
+    this.setHeader(
+      "x-vercel-protection-bypass",
+      import.meta.env.VITE_PROTECTION_KEY
+    );
   }
 
   setAxiosResponseInterceptor(
